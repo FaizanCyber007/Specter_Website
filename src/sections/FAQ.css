@@ -1,0 +1,127 @@
+.faq {
+  background: var(--primary-bg);
+  position: relative;
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  padding: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.faq-item:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.15);
+}
+
+.faq-item.active {
+  border-color: rgba(139, 92, 246, 0.5);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.05) 0%,
+    rgba(59, 130, 246, 0.05) 100%
+  );
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+  background: rgba(139, 92, 246, 0.05);
+}
+
+.question-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+  padding-right: 20px;
+}
+
+.chevron-icon {
+  font-size: 24px;
+  color: var(--accent-purple);
+  flex-shrink: 0;
+}
+
+.faq-answer {
+  overflow: hidden;
+}
+
+.faq-answer p {
+  padding: 0 32px 24px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.faq-cta {
+  text-align: center;
+  padding: 60px 40px;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.1) 0%,
+    rgba(59, 130, 246, 0.1) 100%
+  );
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+}
+
+.faq-cta h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.faq-cta p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+@media (max-width: 768px) {
+  .faq-question {
+    padding: 20px 24px;
+  }
+
+  .question-text {
+    font-size: 16px;
+  }
+
+  .faq-answer p {
+    padding: 0 24px 20px;
+    font-size: 14px;
+  }
+
+  .faq-cta {
+    padding: 40px 24px;
+  }
+
+  .faq-cta h3 {
+    font-size: 24px;
+  }
+
+  .faq-cta p {
+    font-size: 14px;
+  }
+}
