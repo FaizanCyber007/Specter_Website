@@ -147,17 +147,6 @@ const Hero = () => {
               </p>
             </motion.div>
 
-            <motion.div
-              className="feature-card glass"
-              whileHover={{ y: -8, scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="feature-icon amber">💬</div>
-              <h4 className="feature-title">Case Q&A</h4>
-              <p className="feature-text">
-                Get intelligent answers about your cases instantly
-              </p>
-            </motion.div>
           </div>
         </motion.div>
       </div>
