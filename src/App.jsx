@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Hero from "./sections/Hero";
@@ -15,7 +16,6 @@ import CTA from "./sections/CTA";
 import Auth from "./pages/Auth";
 import Resources from "./pages/Resources";
 import Company from "./pages/Company";
-import "./App.css";
 
 // Home Page Component
 const HomePage = () => (
