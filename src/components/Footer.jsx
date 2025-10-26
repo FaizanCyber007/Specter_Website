@@ -9,9 +9,9 @@ const Footer = () => {
 
   const footerLinks = {
     product: [
-      { name: "Features", href: "#features", isHash: true },
-      { name: "Pricing", href: "#pricing", isHash: true },
-      { name: "Solutions", href: "#solutions", isHash: true },
+      { name: "Features", href: "/#features", isHash: true },
+      { name: "Pricing", href: "/#pricing", isHash: true },
+      { name: "Solutions", href: "/#solutions", isHash: true },
       { name: "Use Cases", href: "/#use-cases", isHash: true },
     ],
     company: [
@@ -155,22 +155,17 @@ const Footer = () => {
             </div>
             <div className="contact-item">
               <HiPhone className="contact-icon" />
-              <span>+1 (555) 123-4567</span>
+              <span>+92 332 0436737</span>
             </div>
             <div className="contact-item">
               <HiLocationMarker className="contact-icon" />
-              <span>San Francisco, CA</span>
+              <span>Defence Road, Lahore</span>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
           <p className="copyright">© 2025 Specter AI. All rights reserved.</p>
-          <div className="footer-badges">
-            <span className="badge glass">SOC 2 Type II</span>
-            <span className="badge glass">GDPR Compliant</span>
-            <span className="badge glass">ISO 27001</span>
-          </div>
         </div>
       </div>
     </footer>
