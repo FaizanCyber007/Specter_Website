@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { HiStar } from "react-icons/hi";
+import { TESTIMONIALS } from "../data/siteData";
 import "./Testimonials.css";
 
 const Testimonials = () => {
@@ -8,51 +9,6 @@ const Testimonials = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const testimonials = [
-    {
-      name: "Sarah Mitchell",
-      role: "Senior Partner, Mitchell & Associates",
-      image: "👩‍⚖️",
-      rating: 5,
-      text: "Specter AI has revolutionized our case preparation process. What used to take days now takes hours. The precedent search is incredibly accurate.",
-    },
-    {
-      name: "James Chen",
-      role: "Corporate Counsel, Tech Corp",
-      image: "👨‍💼",
-      rating: 5,
-      text: "The document scanning and Q&A features are game-changers. Our legal team is more efficient than ever, and we can handle more cases with the same resources.",
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Managing Partner, Rodriguez Law Firm",
-      image: "👩‍💻",
-      rating: 5,
-      text: "Security and compliance were our top concerns. Specter AI exceeded all expectations with their vault system. SOC 2 compliance gives us peace of mind.",
-    },
-    {
-      name: "Michael Thompson",
-      role: "Legal Director, Fortune 500 Company",
-      image: "👨‍⚖️",
-      rating: 5,
-      text: "The ROI has been phenomenal. We've reduced research time by 75% and improved our case success rate. Best investment we've made in legal tech.",
-    },
-    {
-      name: "Patricia Williams",
-      role: "Criminal Defense Attorney",
-      image: "👩‍⚖️",
-      rating: 5,
-      text: "As a solo practitioner, Specter AI gives me capabilities of a large firm. The AI assistant feels like having a team of researchers at my fingertips.",
-    },
-    {
-      name: "David Kumar",
-      role: "Head of Legal, Global Enterprise",
-      image: "👨‍💼",
-      rating: 5,
-      text: "Implementing Specter AI across our international offices was seamless. The platform scales beautifully and the support team is exceptional.",
-    },
-  ];
 
   return (
     <section className="testimonials section" ref={ref}>
@@ -65,16 +21,16 @@ const Testimonials = () => {
         >
           <h2 className="section-title">
             Trusted by{" "}
-            <span className="gradient-text">Legal Professionals</span>
+            <span className="gradient-text">Pakistan&apos;s Legal Community</span>
           </h2>
           <p className="section-description">
-            Join thousands of lawyers who are transforming their practice with
-            Specter AI
+            Join legal professionals across Pakistan who are transforming
+            document management with Specter
           </p>
         </motion.div>
 
         <div className="testimonials-grid">
-          {testimonials.map((testimonial, index) => (
+          {TESTIMONIALS.map((testimonial, index) => (
             <motion.div
               key={index}
               className="testimonial-card glass"

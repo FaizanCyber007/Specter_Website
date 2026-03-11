@@ -1,11 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import {
-  HiArrowRight,
-  HiLightningBolt,
-  HiShieldCheck,
-  HiSparkles,
-} from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
+import { HiArrowRight } from "react-icons/hi";
 import "./CTA.css";
 
 const CTA = () => {
@@ -13,11 +9,12 @@ const CTA = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+  const navigate = useNavigate();
 
   const benefits = [
-    { icon: <HiLightningBolt />, text: "Get started in minutes" },
-    { icon: <HiShieldCheck />, text: "No credit card required" },
-    { icon: <HiSparkles />, text: "14-day free trial" },
+    { icon: "⚡", text: "Download free on Google Play" },
+    { icon: "🔒", text: "On-device processing available" },
+    { icon: "✨", text: "99.5% OCR accuracy" },
   ];
 
   return (
@@ -36,8 +33,7 @@ const CTA = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              <HiSparkles className="badge-icon" />
-              <span>Limited Time Offer</span>
+              <span>⚖️ Now Available on Android</span>
             </motion.div>
 
             <motion.h2
@@ -46,7 +42,7 @@ const CTA = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
-              Transform Your Legal Practice{" "}
+              Digitize Pakistan&apos;s FIR Records{" "}
               <span className="gradient-text">Today</span>
             </motion.h2>
 
@@ -56,8 +52,8 @@ const CTA = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
-              Join thousands of legal professionals who are already saving time
-              and winning more cases with Specter AI
+              Join legal professionals across Pakistan who are already saving
+              hours of manual work and digitizing FIRs with Specter
             </motion.p>
 
             <motion.div
@@ -68,7 +64,7 @@ const CTA = () => {
             >
               {benefits.map((benefit, index) => (
                 <div key={index} className="benefit-item">
-                  {benefit.icon}
+                  <span>{benefit.icon}</span>
                   <span>{benefit.text}</span>
                 </div>
               ))}
@@ -84,19 +80,20 @@ const CTA = () => {
                 className="btn-primary btn-large cta-btn"
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: "0 20px 50px rgba(139, 92, 246, 0.6)",
+                  boxShadow: "0 20px 50px rgba(201, 162, 42, 0.5)",
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Start Your Free Trial
+                Download Free on Google Play
                 <HiArrowRight className="btn-icon" />
               </motion.button>
               <motion.button
                 className="btn-secondary btn-large"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => navigate("/contact")}
               >
-                Schedule Demo
+                Contact Sales
               </motion.button>
             </motion.div>
 
@@ -106,8 +103,7 @@ const CTA = () => {
               animate={inView ? { opacity: 1 } : {}}
               transition={{ delay: 0.8, duration: 0.6 }}
             >
-              ✓ No credit card required · ✓ Cancel anytime · ✓ Free onboarding
-              support
+              ✓ Free Individual plan · ✓ On-device privacy option · ✓ Works offline
             </motion.p>
           </div>
 

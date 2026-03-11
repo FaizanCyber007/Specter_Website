@@ -1,50 +1,62 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --primary-bg: #0a0a0f;
-  --secondary-bg: #13131a;
-  --tertiary-bg: #1a1a24;
+  /* ── Backgrounds (prestigious dark navy — law firm aesthetic) ── */
+  --primary-bg: #06080E;
+  --secondary-bg: #0A0E18;
+  --tertiary-bg: #0F1422;
+  --surface-bg: #141A2A;
 
-  /* Main Brand Colors - Golden & Pakistan Green */
-  --accent-gold: #d4af37;
-  --accent-gold-light: #f4d03f;
-  --accent-gold-dark: #b8932f;
-  --accent-green: #01411c;
-  --accent-green-light: #0a6638;
-  --accent-green-bright: #10b981;
+  /* ── Brand: Judicial Gold — primary action color ── */
+  --accent-green: #C49830;
+  --accent-green-light: #DAB040;
+  --accent-green-bright: #ECC84E;
 
-  /* Supporting Colors */
-  --accent-emerald: #059669;
-  --accent-teal: #0d9488;
-  --accent-cyan: #06b6d4;
-  --accent-amber: #f59e0b;
+  /* ── Brand: Judicial Amber Gold (scales of justice) ── */
+  --accent-gold: #C49830;
+  --accent-gold-light: #DAB040;
+  --accent-gold-dark: #9A7525;
 
-  /* Text Colors */
-  --text-primary: #ffffff;
-  --text-secondary: #a8a9b4;
-  --text-muted: #6b7280;
-  --text-gold: #d4af37;
+  /* ── Deep Navy (depth layers only) ── */
+  --accent-blue: #1E3A6E;
+  --accent-blue-light: #2B5BA8;
+  --accent-blue-bright: #3B7DD8;
 
-  /* UI Colors */
-  --border-color: rgba(212, 175, 55, 0.15);
-  --glass-bg: rgba(26, 26, 36, 0.7);
-  --glass-border: rgba(212, 175, 55, 0.2);
+  /* ── Backwards-compat aliases ── */
+  --accent-emerald: #C49830;
+  --accent-teal: #B88520;
+  --accent-cyan: #C49830;
+  --accent-amber: #C49830;
 
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #d4af37 0%, #0a6638 100%);
-  --gradient-secondary: linear-gradient(135deg, #f4d03f 0%, #10b981 100%);
-  --gradient-tertiary: linear-gradient(135deg, #0a6638 0%, #0d9488 100%);
-  --gradient-gold: linear-gradient(
-    135deg,
-    #f4d03f 0%,
-    #d4af37 50%,
-    #b8932f 100%
-  );
-  --gradient-green: linear-gradient(135deg, #10b981 0%, #0a6638 100%);
+  /* ── Judiciary Maroon (court insignia) ── */
+  --accent-maroon: #7B2D3E;
+  --accent-maroon-light: #A84050;
 
-  /* Glows */
-  --glow-gold: 0 0 60px rgba(212, 175, 55, 0.5);
-  --glow-green: 0 0 60px rgba(16, 185, 129, 0.4);
+  /* ── Text (warm parchment white) ── */
+  --text-primary: #F4F0E6;
+  --text-secondary: #8C8980;
+  --text-muted: #5C5850;
+  --text-gold: #C49830;
+
+  /* ── UI ── */
+  --border-color: rgba(196, 146, 58, 0.16);
+  --border-subtle: rgba(196, 146, 58, 0.07);
+  --glass-bg: rgba(7, 10, 18, 0.86);
+  --glass-border: rgba(196, 146, 58, 0.18);
+
+  /* ── Gradients ── */
+  --gradient-primary: linear-gradient(135deg, #C49830 0%, #DAB040 100%);
+  --gradient-secondary: linear-gradient(135deg, #DAB040 0%, #C49830 50%, #9A7525 100%);
+  --gradient-tertiary: linear-gradient(135deg, #1E3A6E 0%, #0C1F42 100%);
+  --gradient-gold: linear-gradient(135deg, #DAB040 0%, #C49830 50%, #9A7525 100%);
+  --gradient-green: linear-gradient(135deg, #DAB040 0%, #C49830 100%);
+  --gradient-maroon: linear-gradient(135deg, #7B2D3E 0%, #A84050 100%);
+  --gradient-hero: linear-gradient(160deg, #06080E 0%, #0A0E18 50%, #07090F 100%);
+
+  /* ── Glows ── */
+  --glow-gold: 0 0 60px rgba(196, 146, 58, 0.44);
+  --glow-green: 0 0 60px rgba(196, 146, 58, 0.44);
+  --glow-maroon: 0 0 40px rgba(123, 45, 62, 0.30);
 }
 
 * {
@@ -63,6 +75,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--primary-bg);
+  background-image: radial-gradient(ellipse at 80% 15%, rgba(196,146,58,0.07) 0%, transparent 60%),
+                    radial-gradient(ellipse at 10% 90%, rgba(196,146,58,0.04) 0%, transparent 60%);
   color: var(--text-primary);
   overflow-x: hidden;
   line-height: 1.6;
@@ -80,7 +94,7 @@ body {
   background: linear-gradient(
     180deg,
     var(--accent-gold) 0%,
-    var(--accent-green-light) 100%
+    var(--accent-blue-light) 100%
   );
   border-radius: 5px;
 }
@@ -98,7 +112,7 @@ body {
 }
 
 .gradient-text {
-  background: var(--gradient-primary);
+  background: var(--gradient-gold);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -128,7 +142,7 @@ body {
   height: 600px;
   background: radial-gradient(
     circle,
-    rgba(212, 175, 55, 0.25) 0%,
+    rgba(196, 146, 58, 0.18) 0%,
     transparent 70%
   );
   top: -200px;
@@ -140,7 +154,7 @@ body {
   height: 500px;
   background: radial-gradient(
     circle,
-    rgba(16, 185, 129, 0.2) 0%,
+    rgba(196, 146, 58, 0.14) 0%,
     transparent 70%
   );
   bottom: -150px;
@@ -193,7 +207,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  background: linear-gradient(135deg, #9A7525 0%, #C49830 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: -1;
@@ -210,9 +224,60 @@ body {
 }
 
 .btn-secondary:hover {
-  background: rgba(212, 175, 55, 0.15);
+  background: rgba(196, 146, 58, 0.15);
   border-color: var(--accent-gold-light);
   box-shadow: var(--glow-gold);
+}
+
+/* Section Eyebrow Labels */
+.section-eyebrow {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  background: rgba(196, 146, 58, 0.10);
+  border: 1px solid rgba(196, 146, 58, 0.20);
+  padding: 5px 14px;
+  border-radius: 100px;
+  margin-bottom: 18px;
+}
+
+/* Page Hero (used by PricingPage, SolutionsPage, etc.) */
+.page-hero {
+  padding-top: 148px;
+  padding-bottom: 24px;
+  text-align: center;
+}
+
+.page-hero-content {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.page-hero-title {
+  font-size: clamp(34px, 5.5vw, 58px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: -1.5px;
+}
+
+.page-hero-description {
+  font-size: clamp(15px, 1.8vw, 17.5px);
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 560px;
+  margin: 0 auto 32px;
+}
+
+.page-hero-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* Container & Layout */
@@ -398,7 +463,7 @@ body {
   display: inline-block;
   width: 20px;
   height: 20px;
-  border: 3px solid rgba(212, 175, 55, 0.3);
+  border: 3px solid rgba(196, 146, 58, 0.3);
   border-radius: 50%;
   border-top-color: var(--accent-gold);
   animation: spin 1s ease-in-out infinite;
@@ -408,4 +473,11 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* ── Anchor scroll offset: compensates for fixed navbar (76px) + sticky
+   PageNav bar (52px) + 16px breathing room = 144px total offset.
+   Only activates for hash / scrollIntoView navigation (not layout). ── */
+[id] {
+  scroll-margin-top: 144px;
 }

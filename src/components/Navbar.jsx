@@ -1,114 +1,160 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { HiMenu, HiX } from "react-icons/hi";
-import { useNavigate } from "react-router-dom";
+import { HiMenu, HiX, HiChevronDown } from "react-icons/hi";
+import { useNavigate, useLocation } from "react-router-dom";
+import { NAV_ITEMS } from "../data/siteData";
 import "./Navbar.css";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [mobileExpanded, setMobileExpanded] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
+  const navRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-
-      // Calculate scroll progress
-      const windowHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const scrolledPercent = (window.scrollY / windowHeight) * 100;
-      setScrollProgress(scrolledPercent);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = [
-    { name: "Features", href: "/#features", isHash: true },
-    { name: "Solutions", href: "/#solutions", isHash: true },
-    { name: "How It Works", href: "/#how-it-works", isHash: true },
-    { name: "Pricing", href: "/#pricing", isHash: true },
-    { name: "Resources", href: "/resources", isHash: false },
-    { name: "Company", href: "/company", isHash: false },
-  ];
+  // Close menus on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setMobileExpanded(null);
+  }, [location.pathname]);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  /**
+   * Navigate to a section anchor link, smooth-scrolling if already on the target page.
+   */
+  const handleSectionClick = (href) => {
+    setOpenDropdown(null);
+    setIsMobileMenuOpen(false);
+
+    if (href.includes("#")) {
+      const hashIdx = href.indexOf("#");
+      const path = href.slice(0, hashIdx) || "/";
+      const hash = href.slice(hashIdx + 1);
+
+      if (location.pathname === path) {
+        const el = document.getElementById(hash);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.pageYOffset - 80;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+      } else {
+        navigate(href);
+      }
+    } else {
+      navigate(href);
+    }
+  };
+
+  const isPageActive = (item) => location.pathname === item.href;
 
   return (
     <motion.nav
+      ref={navRef}
       className={`navbar ${scrolled ? "scrolled" : ""}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="scroll-progress-bar">
-        <div
-          className="scroll-progress-fill"
-          style={{ width: `${scrollProgress}%` }}
-        />
-      </div>
-
       <div className="nav-container container">
+        {/* Logo */}
         <motion.div
           className="navbar-logo"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => navigate("/")}
-          style={{ cursor: "pointer" }}
         >
-          <span className="logo-text gradient-text">Specter AI</span>
+          <span className="logo-icon">⚖️</span>
+          <span className="logo-text gradient-text">Specter</span>
         </motion.div>
 
         {/* Desktop Menu */}
-        <div className="navbar-menu desktop-menu">
-          {navItems.map((item, index) =>
-            item.isHash ? (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                className="nav-link"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -2 }}
-              >
-                {item.name}
-              </motion.a>
-            ) : (
+        <nav className="navbar-menu desktop-menu" aria-label="Main navigation">
+          {NAV_ITEMS.map((item, index) => (
+            <div
+              key={item.name}
+              className="nav-item-wrapper"
+              onMouseEnter={() => setOpenDropdown(item.name)}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
               <motion.button
-                key={item.name}
                 onClick={() => navigate(item.href)}
-                className="nav-link nav-link-btn"
+                className={`nav-link nav-link-btn${isPageActive(item) ? " nav-link-active" : ""}`}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -2 }}
+                transition={{ delay: index * 0.07 }}
               >
                 {item.name}
+                {item.sections?.length > 0 && (
+                  <HiChevronDown
+                    className={`nav-chevron${openDropdown === item.name ? " open" : ""}`}
+                  />
+                )}
               </motion.button>
-            )
-          )}
-        </div>
 
-        {/* CTA Button */}
+              {/* Dropdown panel */}
+              <AnimatePresence>
+                {openDropdown === item.name && item.sections?.length > 0 && (
+                  <motion.div
+                    className="nav-dropdown"
+                    initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    {item.sections.map((section) => (
+                      <button
+                        key={section.name}
+                        className="dropdown-item"
+                        onClick={() => handleSectionClick(section.href)}
+                      >
+                        {section.name}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </nav>
+
+        {/* Desktop CTA */}
         <div className="navbar-actions desktop-menu">
           <motion.button
-            className="btn-primary"
+            className="btn-primary nav-cta"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => navigate("/auth")}
+            onClick={() => navigate("/contact")}
           >
-            Get Started
+            Get in Touch
           </motion.button>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile toggle */}
         <motion.button
           className="mobile-menu-button"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           whileTap={{ scale: 0.9 }}
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         >
-          {isMobileMenuOpen ? <HiX size={28} /> : <HiMenu size={28} />}
+          {isMobileMenuOpen ? <HiX size={26} /> : <HiMenu size={26} />}
         </motion.button>
       </div>
 
@@ -122,44 +168,65 @@ const Navbar = () => {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {navItems.map((item, index) =>
-              item.isHash ? (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  className="mobile-nav-link"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </motion.a>
-              ) : (
+            {NAV_ITEMS.map((item, index) => (
+              <div key={item.name} className="mobile-nav-item">
                 <motion.button
-                  key={item.name}
+                  className={`mobile-nav-link mobile-nav-btn${isPageActive(item) ? " mobile-nav-active" : ""}`}
                   onClick={() => {
-                    navigate(item.href);
-                    setIsMobileMenuOpen(false);
+                    if (item.sections?.length > 0) {
+                      setMobileExpanded(
+                        mobileExpanded === item.name ? null : item.name
+                      );
+                    } else {
+                      navigate(item.href);
+                      setIsMobileMenuOpen(false);
+                    }
                   }}
-                  className="mobile-nav-link mobile-nav-btn"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.07 }}
                 >
-                  {item.name}
+                  <span>{item.name}</span>
+                  {item.sections?.length > 0 && (
+                    <HiChevronDown
+                      className={`nav-chevron mobile-chevron${mobileExpanded === item.name ? " open" : ""}`}
+                    />
+                  )}
                 </motion.button>
-              )
-            )}
+
+                <AnimatePresence>
+                  {mobileExpanded === item.name && item.sections?.length > 0 && (
+                    <motion.div
+                      className="mobile-sections"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {item.sections.map((section) => (
+                        <button
+                          key={section.name}
+                          className="mobile-section-link"
+                          onClick={() => handleSectionClick(section.href)}
+                        >
+                          {section.name}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+
             <div className="mobile-menu-actions">
               <button
                 className="btn-primary"
                 onClick={() => {
-                  navigate("/auth");
+                  navigate("/contact");
                   setIsMobileMenuOpen(false);
                 }}
               >
-                Get Started
+                Get in Touch
               </button>
             </div>
           </motion.div>

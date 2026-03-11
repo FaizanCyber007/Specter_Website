@@ -1,9 +1,10 @@
 .company-page {
   min-height: 100vh;
+  padding-top: 76px;
 }
 
 .company-hero {
-  padding: 160px 0 100px;
+  padding: 84px 0 100px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -18,7 +19,7 @@
   height: 100%;
   background: radial-gradient(
       circle at 30% 20%,
-      rgba(212, 175, 55, 0.15) 0%,
+      rgba(196, 146, 58, 0.15) 0%,
       transparent 50%
     ),
     radial-gradient(
@@ -106,8 +107,8 @@
 }
 
 .value-card:hover {
-  border-color: rgba(212, 175, 55, 0.4);
-  box-shadow: 0 25px 70px rgba(212, 175, 55, 0.15);
+  border-color: rgba(196, 146, 58, 0.4);
+  box-shadow: 0 25px 70px rgba(196, 146, 58, 0.15);
 }
 
 .value-icon {
@@ -143,8 +144,8 @@
 }
 
 .team-card:hover {
-  border-color: rgba(212, 175, 55, 0.4);
-  box-shadow: 0 25px 70px rgba(212, 175, 55, 0.15);
+  border-color: rgba(196, 146, 58, 0.4);
+  box-shadow: 0 25px 70px rgba(196, 146, 58, 0.15);
 }
 
 .team-avatar {
@@ -219,7 +220,7 @@
   height: 20px;
   border-radius: 50%;
   background: var(--gradient-primary);
-  box-shadow: 0 0 0 4px var(--primary-bg), 0 0 20px rgba(212, 175, 55, 0.5);
+  box-shadow: 0 0 0 4px var(--primary-bg), 0 0 20px rgba(196, 146, 58, 0.5);
 }
 
 .timeline-item:nth-child(odd)::before {

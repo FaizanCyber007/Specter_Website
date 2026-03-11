@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { HiCheck } from "react-icons/hi";
+import { PRICING_PLANS } from "../data/siteData";
 import "./Pricing.css";
 
 const Pricing = () => {
@@ -8,55 +9,6 @@ const Pricing = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const plans = [
-    {
-      name: "Starter",
-      price: "$99",
-      period: "/month",
-      description: "Perfect for solo practitioners",
-      features: [
-        "100 documents/month",
-        "Basic document scanning",
-        "Precedent search",
-        "5GB secure storage",
-        "Email support",
-      ],
-      highlighted: false,
-    },
-    {
-      name: "Professional",
-      price: "$299",
-      period: "/month",
-      description: "For growing law firms",
-      features: [
-        "Unlimited documents",
-        "Advanced AI analysis",
-        "Priority precedent search",
-        "100GB secure storage",
-        "Case Q&A assistant",
-        "Analytics dashboard",
-        "24/7 priority support",
-      ],
-      highlighted: true,
-    },
-    {
-      name: "Enterprise",
-      price: "Custom",
-      period: "",
-      description: "For large organizations",
-      features: [
-        "Everything in Professional",
-        "Unlimited storage",
-        "Custom AI training",
-        "API access",
-        "Dedicated account manager",
-        "On-premise deployment",
-        "SLA guarantee",
-      ],
-      highlighted: false,
-    },
-  ];
 
   return (
     <section id="pricing" className="pricing section" ref={ref}>
@@ -71,12 +23,12 @@ const Pricing = () => {
             Simple, Transparent <span className="gradient-text">Pricing</span>
           </h2>
           <p className="section-description">
-            Choose the plan that fits your practice
+            Choose the plan that fits your legal work
           </p>
         </motion.div>
 
         <div className="pricing-grid">
-          {plans.map((plan, index) => (
+          {PRICING_PLANS.map((plan, index) => (
             <motion.div
               key={index}
               className={`pricing-card glass ${
@@ -119,7 +71,7 @@ const Pricing = () => {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
-                {plan.price === "Custom" ? "Contact Sales" : "Start Free Trial"}
+                {plan.cta}
               </motion.button>
             </motion.div>
           ))}

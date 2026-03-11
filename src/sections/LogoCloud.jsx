@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { LOGO_CLOUD_ITEMS } from "../data/siteData";
 import "./LogoCloud.css";
 
 const LogoCloud = () => {
@@ -37,23 +38,23 @@ const LogoCloud = () => {
           transition={{ duration: 0.6 }}
         >
           <h3 className="logo-cloud-title">
-            Powered by Cutting-Edge Technology
+            Built for Pakistan&apos;s Legal System
           </h3>
           <p className="logo-cloud-subtitle">
-            Enterprise-grade features built for modern legal practice
+            Purpose-built capabilities for FIR document intelligence
           </p>
         </motion.div>
 
         <div className="logo-marquee">
           <div className="logo-track">
-            {[...technologies, ...technologies].map((tech, index) => (
+            {[...LOGO_CLOUD_ITEMS, ...LOGO_CLOUD_ITEMS].map((tech, index) => (
               <motion.div
                 key={index}
                 className="logo-item glass"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{
-                  delay: (index % technologies.length) * 0.05,
+                  delay: (index % LOGO_CLOUD_ITEMS.length) * 0.05,
                   duration: 0.4,
                 }}
                 whileHover={{

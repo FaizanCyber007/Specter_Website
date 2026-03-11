@@ -41,7 +41,7 @@
   height: 2px;
   background: linear-gradient(
     90deg,
-    var(--accent-purple) 0%,
+    var(--accent-gold) 0%,
     var(--accent-blue) 100%
   );
   transform: translateX(-50%);
@@ -194,7 +194,7 @@
     transform: translateX(-50%);
     background: linear-gradient(
       180deg,
-      var(--accent-purple) 0%,
+      var(--accent-gold) 0%,
       var(--accent-blue) 100%
     );
   }

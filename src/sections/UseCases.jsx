@@ -1,14 +1,9 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import {
-  HiDocumentText,
-  HiScale,
-  HiShieldCheck,
-  HiLightningBolt,
-  HiChartBar,
-  HiClock,
-} from "react-icons/hi";
+import { USE_CASES } from "../data/siteData";
 import "./UseCases.css";
+
+const USE_CASE_ICONS = ["📄", "🔍", "🏛️", "👥", "⚖️", "🏗️"];
 
 const UseCases = () => {
   const [ref, inView] = useInView({
@@ -16,75 +11,8 @@ const UseCases = () => {
     threshold: 0.1,
   });
 
-  const useCases = [
-    {
-      icon: <HiDocumentText />,
-      title: "Contract Review",
-      description:
-        "Analyze contracts 10x faster with AI-powered clause extraction and risk assessment",
-      benefits: [
-        "90% faster review",
-        "Risk identification",
-        "Clause comparison",
-      ],
-      color: "gold",
-    },
-    {
-      icon: <HiScale />,
-      title: "Legal Research",
-      description:
-        "Access millions of case precedents and statutes with natural language search",
-      benefits: [
-        "Instant precedent matching",
-        "Citation analysis",
-        "Case summaries",
-      ],
-      color: "green",
-    },
-    {
-      icon: <HiLightningBolt />,
-      title: "Document Generation",
-      description:
-        "Create legal documents from templates with intelligent auto-fill capabilities",
-      benefits: ["Template library", "Smart suggestions", "Version control"],
-      color: "teal",
-    },
-    {
-      icon: <HiShieldCheck />,
-      title: "Compliance Monitoring",
-      description:
-        "Stay ahead of regulatory changes with automated compliance tracking",
-      benefits: ["Real-time updates", "Risk alerts", "Audit trails"],
-      color: "emerald",
-    },
-    {
-      icon: <HiChartBar />,
-      title: "Case Analytics",
-      description:
-        "Gain insights from historical data to predict case outcomes",
-      benefits: [
-        "Success predictions",
-        "Strategy optimization",
-        "Cost estimation",
-      ],
-      color: "amber",
-    },
-    {
-      icon: <HiClock />,
-      title: "Workflow Automation",
-      description:
-        "Automate repetitive tasks and streamline your legal workflows",
-      benefits: [
-        "Task automation",
-        "Calendar integration",
-        "Team collaboration",
-      ],
-      color: "cyan",
-    },
-  ];
-
   return (
-    <section className="use-cases-section section" ref={ref}>
+    <section id="use-cases" className="use-cases-section section" ref={ref}>
       <div className="container">
         <motion.div
           className="section-header"
@@ -96,23 +24,23 @@ const UseCases = () => {
             Built for <span className="gradient-text">Every Legal Need</span>
           </h2>
           <p className="section-description">
-            From contract review to case management, Specter AI transforms how
-            lawyers work
+            From FIR digitization to case management, Specter serves Pakistan&apos;s
+            entire legal ecosystem
           </p>
         </motion.div>
 
         <div className="use-cases-grid">
-          {useCases.map((useCase, index) => (
+          {USE_CASES.map((useCase, index) => (
             <motion.div
               key={index}
-              className={`use-case-card glass use-case-${useCase.color}`}
+              className={`use-case-card glass use-case-${useCase.colorKey}`}
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: index * 0.1, duration: 0.6 }}
               whileHover={{ y: -10, scale: 1.02 }}
             >
               <div className="use-case-icon-wrapper">
-                <div className="use-case-icon">{useCase.icon}</div>
+                <div className="use-case-icon">{USE_CASE_ICONS[index % USE_CASE_ICONS.length]}</div>
               </div>
               <h3 className="use-case-title">{useCase.title}</h3>
               <p className="use-case-description">{useCase.description}</p>

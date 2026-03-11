@@ -1,0 +1,32 @@
+.compliance-security-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 28px 0;
+}
+
+.compliance-card {
+  padding: 28px;
+  border-radius: 16px;
+}
+
+.compliance-card-icon {
+  font-size: 28px;
+  color: var(--accent-gold);
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.compliance-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+@media (max-width: 768px) {
+  .compliance-security-cards {
+    grid-template-columns: 1fr;
+  }
+}

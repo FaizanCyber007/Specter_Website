@@ -1,0 +1,98 @@
+/* PageNav — sticky in-page navigation for sub-pages */
+.page-nav {
+  position: sticky;
+  top: 76px; /* sits just below fixed main navbar (~76px tall) */
+  z-index: 999;
+  background: rgba(7, 9, 15, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(196, 146, 58, 0.15);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+.page-nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 52px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.page-nav-container::-webkit-scrollbar {
+  display: none;
+}
+
+.page-nav-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-gold);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+  padding-right: 16px;
+  border-right: 1px solid rgba(201, 162, 42, 0.2);
+  flex-shrink: 0;
+}
+
+.page-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: nowrap;
+}
+
+.page-nav-link {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 8px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: color 0.25s ease, background 0.25s ease;
+}
+
+.page-nav-link:hover {
+  color: var(--text-primary);
+  background: rgba(201, 162, 42, 0.08);
+}
+
+.page-nav-link.active {
+  color: var(--accent-gold-light);
+  background: rgba(201, 162, 42, 0.1);
+}
+
+.page-nav-indicator {
+  position: absolute;
+  bottom: -2px;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background: var(--gradient-gold);
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .page-nav-container {
+    padding: 0 16px;
+    gap: 8px;
+  }
+
+  .page-nav-title {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .page-nav-link {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+}

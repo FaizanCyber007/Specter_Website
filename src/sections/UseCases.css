@@ -17,7 +17,7 @@
   height: 100%;
   background-image: radial-gradient(
       circle at 30% 20%,
-      rgba(212, 175, 55, 0.08) 0%,
+      rgba(196, 146, 58, 0.08) 0%,
       transparent 50%
     ),
     radial-gradient(
@@ -55,8 +55,8 @@
 .use-case-gold::before {
   background: linear-gradient(
     135deg,
-    rgba(212, 175, 55, 0.08) 0%,
-    rgba(244, 208, 63, 0.05) 100%
+    rgba(196, 146, 58, 0.08) 0%,
+    rgba(212, 169, 60, 0.05) 100%
   );
 }
 
@@ -105,8 +105,8 @@
 }
 
 .use-case-gold:hover {
-  border-color: rgba(212, 175, 55, 0.4);
-  box-shadow: 0 25px 70px rgba(212, 175, 55, 0.2);
+  border-color: rgba(196, 146, 58, 0.4);
+  box-shadow: 0 25px 70px rgba(196, 146, 58, 0.2);
 }
 
 .use-case-green:hover {
@@ -149,8 +149,8 @@
 .use-case-gold .use-case-icon-wrapper {
   background: linear-gradient(
     135deg,
-    rgba(212, 175, 55, 0.2) 0%,
-    rgba(244, 208, 63, 0.1) 100%
+    rgba(196, 146, 58, 0.2) 0%,
+    rgba(212, 169, 60, 0.1) 100%
   );
 }
 
@@ -276,7 +276,7 @@
 }
 
 .use-case-gold .benefit-check {
-  background: rgba(212, 175, 55, 0.2);
+  background: rgba(196, 146, 58, 0.2);
   color: var(--accent-gold);
 }
 

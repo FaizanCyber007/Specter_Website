@@ -2,56 +2,55 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { FaTwitter, FaLinkedin, FaGithub, FaYoutube } from "react-icons/fa";
 import { HiMail, HiPhone, HiLocationMarker } from "react-icons/hi";
+import { SITE_CONFIG, FOOTER_LINKS, SOCIAL_LINKS } from "../data/siteData";
 import "./Footer.css";
+
+const SOCIAL_ICONS = {
+  Twitter: <FaTwitter />,
+  LinkedIn: <FaLinkedin />,
+  GitHub: <FaGithub />,
+  YouTube: <FaYoutube />,
+};
 
 const Footer = () => {
   const navigate = useNavigate();
 
-  const footerLinks = {
-    product: [
-      { name: "Features", href: "/#features", isHash: true },
-      { name: "Pricing", href: "/#pricing", isHash: true },
-      { name: "Solutions", href: "/#solutions", isHash: true },
-      { name: "Use Cases", href: "/#use-cases", isHash: true },
-    ],
-    company: [
-      { name: "About Us", href: "/company", isHash: false },
-      { name: "Resources", href: "/resources", isHash: false },
-      { name: "Careers", href: "/company#careers", isHash: false },
-      { name: "Contact", href: "/company#contact", isHash: false },
-    ],
-    resources: [
-      { name: "Documentation", href: "/resources", isHash: false },
-      { name: "Guides & Tutorials", href: "/resources#guides", isHash: false },
-      { name: "Webinars", href: "/resources#webinars", isHash: false },
-      { name: "Support", href: "/resources#support", isHash: false },
-    ],
-    legal: [
-      { name: "Privacy Policy", href: "#", isHash: true },
-      { name: "Terms of Service", href: "#", isHash: true },
-      { name: "Cookie Policy", href: "#", isHash: true },
-      { name: "Compliance", href: "#", isHash: true },
-    ],
+  const handleLink = (link) => {
+    if (link.isHash) {
+      // In-page anchor — navigate (may include /#id)
+      if (link.href.startsWith("/#")) {
+        navigate(link.href);
+      } else {
+        window.location.hash = link.href;
+      }
+    } else {
+      navigate(link.href);
+    }
   };
 
-  const socialLinks = [
-    { icon: <FaTwitter />, href: "#", label: "Twitter" },
-    { icon: <FaLinkedin />, href: "#", label: "LinkedIn" },
-    { icon: <FaGithub />, href: "#", label: "GitHub" },
-    { icon: <FaYoutube />, href: "#", label: "YouTube" },
-  ];
+  const renderLink = (link, index) => (
+    <li key={index}>
+      <button
+        onClick={() => handleLink(link)}
+        className="footer-link footer-link-btn"
+      >
+        {link.name}
+      </button>
+    </li>
+  );
 
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-top">
           <div className="footer-brand">
-            <h3 className="footer-logo gradient-text">Specter AI</h3>
-            <p className="footer-tagline">
-              Empowering legal professionals with AI-driven intelligence
-            </p>
+            <div className="footer-logo-row">
+              <span className="footer-logo-icon">⚖️</span>
+              <h3 className="footer-logo gradient-text">{SITE_CONFIG.name}</h3>
+            </div>
+            <p className="footer-tagline">{SITE_CONFIG.shortDescription}</p>
             <div className="footer-social">
-              {socialLinks.map((social, index) => (
+              {SOCIAL_LINKS.map((social, index) => (
                 <motion.a
                   key={index}
                   href={social.href}
@@ -60,7 +59,7 @@ const Footer = () => {
                   whileHover={{ y: -5, scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  {social.icon}
+                  {SOCIAL_ICONS[social.platform]}
                 </motion.a>
               ))}
             </div>
@@ -70,79 +69,28 @@ const Footer = () => {
             <div className="link-column">
               <h4 className="link-title">Product</h4>
               <ul className="link-list">
-                {footerLinks.product.map((link, index) => (
-                  <li key={index}>
-                    {link.isHash ? (
-                      <a href={link.href} className="footer-link">
-                        {link.name}
-                      </a>
-                    ) : (
-                      <button
-                        onClick={() => navigate(link.href)}
-                        className="footer-link footer-link-btn"
-                      >
-                        {link.name}
-                      </button>
-                    )}
-                  </li>
-                ))}
+                {FOOTER_LINKS.product.map(renderLink)}
               </ul>
             </div>
 
             <div className="link-column">
               <h4 className="link-title">Company</h4>
               <ul className="link-list">
-                {footerLinks.company.map((link, index) => (
-                  <li key={index}>
-                    {link.isHash ? (
-                      <a href={link.href} className="footer-link">
-                        {link.name}
-                      </a>
-                    ) : (
-                      <button
-                        onClick={() => navigate(link.href)}
-                        className="footer-link footer-link-btn"
-                      >
-                        {link.name}
-                      </button>
-                    )}
-                  </li>
-                ))}
+                {FOOTER_LINKS.company.map(renderLink)}
               </ul>
             </div>
 
             <div className="link-column">
               <h4 className="link-title">Resources</h4>
               <ul className="link-list">
-                {footerLinks.resources.map((link, index) => (
-                  <li key={index}>
-                    {link.isHash ? (
-                      <a href={link.href} className="footer-link">
-                        {link.name}
-                      </a>
-                    ) : (
-                      <button
-                        onClick={() => navigate(link.href)}
-                        className="footer-link footer-link-btn"
-                      >
-                        {link.name}
-                      </button>
-                    )}
-                  </li>
-                ))}
+                {FOOTER_LINKS.resources.map(renderLink)}
               </ul>
             </div>
 
             <div className="link-column">
               <h4 className="link-title">Legal</h4>
               <ul className="link-list">
-                {footerLinks.legal.map((link, index) => (
-                  <li key={index}>
-                    <a href={link.href} className="footer-link">
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
+                {FOOTER_LINKS.legal.map(renderLink)}
               </ul>
             </div>
           </div>
@@ -151,21 +99,26 @@ const Footer = () => {
             <h4 className="link-title">Contact Us</h4>
             <div className="contact-item">
               <HiMail className="contact-icon" />
-              <span>support@specterai.com</span>
+              <span>{SITE_CONFIG.email}</span>
             </div>
             <div className="contact-item">
               <HiPhone className="contact-icon" />
-              <span>+92 332 0436737</span>
+              <span>{SITE_CONFIG.phone}</span>
             </div>
             <div className="contact-item">
               <HiLocationMarker className="contact-icon" />
-              <span>Defence Road, Lahore</span>
+              <span>{SITE_CONFIG.address}</span>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p className="copyright">© 2025 Specter AI. All rights reserved.</p>
+          <p className="copyright">
+            © {new Date().getFullYear()} {SITE_CONFIG.name}. All rights reserved.
+          </p>
+          <p className="footer-sub">
+            Built with pride for Pakistan's legal community.
+          </p>
         </div>
       </div>
     </footer>

@@ -1,65 +1,21 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import {
-  HiDocumentText,
-  HiScale,
-  HiShieldCheck,
-  HiChatAlt2,
-  HiLightningBolt,
-  HiChartBar,
-} from "react-icons/hi";
+import { FEATURES } from "../data/siteData";
 import "./Features.css";
+
+const COLOR_MAP = {
+  gold: "#C9A22A",
+  green: "#15803D",
+  maroon: "#9B2335",
+};
+
+const FEATURE_ICONS = ["📷", "✨", "🔒", "🔍", "⚖️", "📊"];
 
 const Features = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const features = [
-    {
-      icon: <HiDocumentText />,
-      title: "Document Scanning",
-      description:
-        "AI-powered OCR and analysis extracts key information from thousands of legal documents in seconds.",
-      color: "#8b5cf6",
-    },
-    {
-      icon: <HiScale />,
-      title: "Precedent Retrieval",
-      description:
-        "Access millions of relevant case precedents with intelligent search and contextual matching.",
-      color: "#3b82f6",
-    },
-    {
-      icon: <HiShieldCheck />,
-      title: "Secure Vault",
-      description:
-        "Bank-level encryption protects your sensitive case files with granular access controls.",
-      color: "#ec4899",
-    },
-    {
-      icon: <HiChatAlt2 />,
-      title: "Case Q&A Assistant",
-      description:
-        "Ask questions about your cases and get instant, accurate answers with source citations.",
-      color: "#06b6d4",
-    },
-    {
-      icon: <HiLightningBolt />,
-      title: "Lightning Fast",
-      description:
-        "Process thousands of pages in minutes with our optimized AI infrastructure.",
-      color: "#f59e0b",
-    },
-    {
-      icon: <HiChartBar />,
-      title: "Analytics & Insights",
-      description:
-        "Track case patterns, identify trends, and make data-driven legal strategies.",
-      color: "#10b981",
-    },
-  ];
 
   const containerVariants = {
     hidden: {},
@@ -91,13 +47,13 @@ const Features = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
+          <span className="section-eyebrow">⚡ Core Features</span>
           <h2 className="section-title">
             Powerful Features for{" "}
-            <span className="gradient-text">Modern Legal Practice</span>
+            <span className="gradient-text">Legal Professionals</span>
           </h2>
           <p className="section-description">
-            Everything you need to streamline your legal workflow and deliver
-            exceptional results
+            Everything you need to digitize, manage, and analyze FIR documents
           </p>
         </motion.div>
 
@@ -107,7 +63,9 @@ const Features = () => {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          {features.map((feature, index) => (
+          {FEATURES.map((feature, index) => {
+            const color = COLOR_MAP[feature.colorKey] || "#C9A22A";
+            return (
             <motion.div
               key={index}
               className="feature-card glass"
@@ -120,11 +78,11 @@ const Features = () => {
               <div
                 className="feature-icon-wrapper"
                 style={{
-                  background: `linear-gradient(135deg, ${feature.color}20 0%, ${feature.color}10 100%)`,
+                  background: `linear-gradient(135deg, ${color}20 0%, ${color}10 100%)`,
                 }}
               >
-                <div className="feature-icon" style={{ color: feature.color }}>
-                  {feature.icon}
+                <div className="feature-icon" style={{ color }}>
+                  {FEATURE_ICONS[index % FEATURE_ICONS.length]}
                 </div>
               </div>
               <h3 className="feature-title">{feature.title}</h3>
@@ -133,7 +91,8 @@ const Features = () => {
                 Learn more →
               </motion.div>
             </motion.div>
-          ))}
+            );
+          })}
         </motion.div>
       </div>
     </section>

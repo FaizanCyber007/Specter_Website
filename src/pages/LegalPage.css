@@ -1,0 +1,324 @@
+/* ============================================================
+   LegalPage.css — Shared styles for Privacy, Terms, Cookie,
+   Compliance, and similar structured text pages.
+   ============================================================ */
+
+/* ── Page wrapper ── */
+.legal-page {
+  min-height: 100vh;
+  padding-top: 76px; /* main navbar height */
+}
+
+/* ── Hero ── */
+.legal-hero {
+  padding: 80px 0 60px;
+  background: linear-gradient(
+    160deg,
+    rgba(201, 162, 42, 0.06) 0%,
+    transparent 60%
+  );
+  border-bottom: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.legal-hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.legal-hero-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: white;
+  margin: 0 auto 24px;
+  box-shadow: var(--glow-gold);
+}
+
+.legal-title {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.legal-subtitle {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.legal-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.legal-meta-divider {
+  color: var(--border-color);
+}
+
+/* ── Body ── */
+.legal-body {
+  padding: 60px 0 100px;
+}
+
+.legal-content {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ── Sections ── */
+.legal-section {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.legal-section:last-child {
+  border-bottom: none;
+}
+
+.legal-section p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.legal-section p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-section-title {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.legal-section-num {
+  color: var(--accent-gold);
+  font-weight: 800;
+  min-width: 28px;
+}
+
+/* ── Lists ── */
+.legal-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.legal-list li {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 15px;
+  padding: 8px 0 8px 24px;
+  position: relative;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.legal-list li:last-child {
+  border-bottom: none;
+}
+
+.legal-list li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--accent-gold);
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+/* ── Highlight box ── */
+.legal-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: rgba(201, 162, 42, 0.08);
+  border: 1px solid rgba(201, 162, 42, 0.25);
+  border-left: 4px solid var(--accent-gold);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+
+.legal-highlight-icon {
+  color: var(--accent-gold);
+  font-size: 22px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.legal-highlight p {
+  margin: 0;
+  color: var(--text-secondary) !important;
+  font-size: 15px !important;
+}
+
+/* ── Card ── */
+.legal-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin: 20px 0;
+}
+
+.legal-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+/* ── Table ── */
+.legal-table-wrapper {
+  overflow-x: auto;
+  margin: 20px 0;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.legal-table th {
+  background: rgba(201, 162, 42, 0.1);
+  color: var(--accent-gold-light);
+  font-weight: 700;
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.legal-table td {
+  padding: 12px 20px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  line-height: 1.5;
+}
+
+.legal-table tr:last-child td {
+  border-bottom: none;
+}
+
+.legal-table tr:hover td {
+  background: rgba(201, 162, 42, 0.03);
+}
+
+/* ── Contact card ── */
+.legal-contact-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.legal-contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+.legal-contact-icon {
+  color: var(--accent-gold);
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.legal-contact-row a {
+  color: var(--accent-gold-light);
+  text-decoration: none;
+}
+
+.legal-contact-row a:hover {
+  text-decoration: underline;
+}
+
+/* ── Note ── */
+.legal-note {
+  font-size: 13px !important;
+  color: var(--text-muted) !important;
+  font-style: italic;
+  margin-top: 24px !important;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* ── Inline link / code ── */
+.legal-link {
+  color: var(--accent-gold-light);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-gold-dark);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.legal-link:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-gold-light);
+}
+
+.legal-code {
+  background: rgba(201, 162, 42, 0.1);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 13px;
+  font-family: monospace;
+  color: var(--accent-gold-light);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .legal-hero {
+    padding: 60px 0 40px;
+  }
+
+  .legal-section {
+    padding: 36px 0;
+  }
+
+  .legal-section-title {
+    font-size: 19px;
+  }
+
+  .legal-table th,
+  .legal-table td {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+}

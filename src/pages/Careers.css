@@ -1,0 +1,285 @@
+.careers-page {
+  min-height: 100vh;
+  padding-top: 76px;
+}
+
+/* ── Hero ── */
+.careers-hero {
+  padding: 100px 0 80px;
+  text-align: center;
+  background: linear-gradient(
+    160deg,
+    rgba(201, 162, 42, 0.07) 0%,
+    transparent 55%
+  );
+  border-bottom: 1px solid var(--border-color);
+}
+
+.careers-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.careers-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-gold-light);
+  margin-bottom: 28px;
+  border: 1px solid var(--glass-border);
+}
+
+.careers-title {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 800;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: -1.5px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.careers-subtitle {
+  font-size: 17px;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── Why Join ── */
+.why-join-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.why-join-card {
+  padding: 32px;
+  border-radius: 16px;
+  transition: border-color 0.3s;
+}
+
+.why-join-card:hover {
+  border-color: rgba(201, 162, 42, 0.4);
+}
+
+.why-join-icon {
+  font-size: 28px;
+  color: var(--accent-gold);
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.why-join-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.why-join-description {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ── Positions ── */
+.positions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.position-card {
+  padding: 28px 32px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.position-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.position-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.position-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.position-dept {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-gold);
+  background: rgba(201, 162, 42, 0.1);
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+.position-location,
+.position-type {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.position-divider {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.position-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.position-body {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.position-description {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.position-apply-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-size: 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+/* ── Culture ── */
+.culture-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.culture-text {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.culture-values {
+  padding: 36px;
+  border-radius: 20px;
+  position: sticky;
+  top: 140px;
+}
+
+.culture-values-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.culture-values-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.culture-values-list li {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.culture-values-list li:last-child {
+  border-bottom: none;
+}
+
+/* ── CTA ── */
+.careers-cta {
+  text-align: center;
+  padding: 80px 60px;
+  border-radius: 24px;
+}
+
+.careers-cta-title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.careers-cta-description {
+  font-size: 17px;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .careers-hero {
+    padding: 80px 0 60px;
+  }
+
+  .why-join-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .culture-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .culture-values {
+    position: static;
+  }
+
+  .careers-cta {
+    padding: 60px 32px;
+  }
+
+  .position-card {
+    padding: 24px 20px;
+  }
+}

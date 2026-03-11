@@ -1,65 +1,21 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import {
-  HiCheckCircle,
-  HiClock,
-  HiTrendingUp,
-  HiLightningBolt,
-  HiShieldCheck,
-  HiChartBar,
-} from "react-icons/hi";
+import { STATS } from "../data/siteData";
 import "./Stats.css";
+
+const COLOR_MAP = {
+  gold: "#C9A22A",
+  green: "#15803D",
+  maroon: "#9B2335",
+};
+
+const STAT_ICONS = ["⚡", "🎯", "📄", "👥", "🔒", "📅"];
 
 const Stats = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const stats = [
-    {
-      icon: <HiLightningBolt />,
-      number: "75%",
-      label: "Faster Research",
-      description: "Reduce legal research time",
-      color: "#d4af37",
-    },
-    {
-      icon: <HiTrendingUp />,
-      number: "3x",
-      label: "Higher Productivity",
-      description: "Handle more cases efficiently",
-      color: "#10b981",
-    },
-    {
-      icon: <HiCheckCircle />,
-      number: "95%",
-      label: "Accuracy Rate",
-      description: "AI-powered precision",
-      color: "#f4d03f",
-    },
-    {
-      icon: <HiClock />,
-      number: "1000+",
-      label: "Hours Saved",
-      description: "Per firm monthly",
-      color: "#0a6638",
-    },
-    {
-      icon: <HiShieldCheck />,
-      number: "100%",
-      label: "Secure & Compliant",
-      description: "Bank-level encryption",
-      color: "#059669",
-    },
-    {
-      icon: <HiChartBar />,
-      number: "10M+",
-      label: "Documents Processed",
-      description: "Analyzed with AI",
-      color: "#0d9488",
-    },
-  ];
 
   return (
     <section className="stats-section" ref={ref}>
@@ -74,12 +30,14 @@ const Stats = () => {
             Results That <span className="gradient-text">Matter</span>
           </h2>
           <p className="section-description">
-            Real impact on legal practice efficiency and success rates
+            Real impact for Pakistan&apos;s legal professionals
           </p>
         </motion.div>
 
         <div className="stats-grid">
-          {stats.map((stat, index) => (
+          {STATS.map((stat, index) => {
+            const color = COLOR_MAP[stat.colorKey] || "#C9A22A";
+            return (
             <motion.div
               key={index}
               className="stat-card glass"
@@ -91,17 +49,17 @@ const Stats = () => {
               <div
                 className="stat-icon-wrapper"
                 style={{
-                  background: `linear-gradient(135deg, ${stat.color}20 0%, ${stat.color}10 100%)`,
+                  background: `linear-gradient(135deg, ${color}20 0%, ${color}10 100%)`,
                 }}
               >
-                <div className="stat-icon" style={{ color: stat.color }}>
-                  {stat.icon}
+                <div className="stat-icon" style={{ color }}>
+                  {STAT_ICONS[index % STAT_ICONS.length]}
                 </div>
               </div>
               <h3
                 className="stat-number"
                 style={{
-                  background: `linear-gradient(135deg, ${stat.color} 0%, ${stat.color}99 100%)`,
+                  background: `linear-gradient(135deg, ${color} 0%, ${color}99 100%)`,
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -112,7 +70,8 @@ const Stats = () => {
               <h4 className="stat-label">{stat.label}</h4>
               <p className="stat-description">{stat.description}</p>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

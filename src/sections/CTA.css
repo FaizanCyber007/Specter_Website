@@ -18,7 +18,7 @@
   border: 2px solid;
   border-image: linear-gradient(
       135deg,
-      var(--accent-purple) 0%,
+      var(--accent-gold) 0%,
       var(--accent-blue) 50%,
       var(--accent-pink) 100%
     )
@@ -84,7 +84,7 @@
 }
 
 .badge-icon {
-  color: var(--accent-purple);
+  color: var(--accent-gold);
   font-size: 20px;
   animation: spin 3s linear infinite;
 }
@@ -134,7 +134,7 @@
 
 .benefit-item svg {
   font-size: 20px;
-  color: var(--accent-purple);
+  color: var(--accent-gold);
 }
 
 .cta-actions {
