@@ -11,8 +11,8 @@ export const SITE_CONFIG = {
     "Pakistan's leading platform for digitizing, analyzing, and managing First Information Reports with AI-powered precision.",
   shortDescription:
     "AI-powered FIR document scanning and management for Pakistan's legal professionals.",
-  email: "contact@specterapp.com",
-  supportEmail: "support@specterapp.com",
+  email: "faizanjaved246@gmail.com",
+  supportEmail: "faizanjaved246@gmail.com",
   phone: "+923276272478",
   address: "Lahore, Punjab, Pakistan",
   playStoreUrl: "#",

@@ -34,8 +34,8 @@ const PrivacyPolicy = () => {
             </div>
             <h1 className="legal-title">Privacy Policy</h1>
             <p className="legal-subtitle">
-              We are committed to protecting your privacy. Specter does not
-              collect, store, or sell any personal information.
+              We are committed to protecting your privacy. Specter is designed to
+              help you extract text securely and reliably.
             </p>
             <div className="legal-meta">
               <span>
@@ -62,11 +62,10 @@ const PrivacyPolicy = () => {
               </h2>
               <p>
                 Specter (&ldquo;the App&rdquo;, &ldquo;we&rdquo;,
-                &ldquo;our&rdquo;) is a FIR (First Information Report) document
-                scanning application that enables users to digitize and extract
-                text from physical documents using on-device OCR and cloud-based
-                AI extraction. This Privacy Policy explains how the App handles
-                information when you use it.
+                &ldquo;our&rdquo;) is a document scanning application that enables
+                users to digitize and extract text from physical documents. This
+                Privacy Policy explains how the App handles information when you
+                use it.
               </p>
               <div className="legal-highlight">
                 <HiShieldCheck className="legal-highlight-icon" />
@@ -98,64 +97,43 @@ const PrivacyPolicy = () => {
                 <li>
                   Any information from your contacts, call logs, or messages
                 </li>
-                <li>Any biometric data</li>
               </ul>
               <p>
-                The App does <strong>not</strong> require you to create an
-                account or log in. There is no user registration, no email
-                verification, and no persistent identity tied to your usage.
+                The App requires absolutely no user registration, meaning there is
+                no persistent identity tied to your usage context.
               </p>
             </section>
 
             {/* ── 3. Document Processing ── */}
             <section id="document-processing" className="legal-section">
               <h2 className="legal-section-title">
-                <span className="legal-section-num">3.</span> Document Images —
-                How They Are Processed
+                <span className="legal-section-num">3.</span> Document Processing
               </h2>
               <p>
-                When you scan a document using the App, the following occurs
-                depending on the scan mode you select:
+                When you use the app&apos;s scanning features, your files are used
+                only to perform the tasks you request.
               </p>
 
               <div className="legal-card">
                 <h3 className="legal-card-title">
-                  📱 Instant Scan (On-Device Mode)
+                  📄 Extraction and Processing
                 </h3>
                 <ul className="legal-list">
                   <li>
-                    Your document image is processed{" "}
-                    <strong>entirely on your device</strong> using local OCR
-                    technology
+                    The app processes only the specific documents and images you
+                    explicitly choose to scan.
                   </li>
                   <li>
-                    No image or extracted text is sent to any external server
-                  </li>
-                  <li>Nothing leaves your device</li>
-                </ul>
-              </div>
-
-              <div className="legal-card">
-                <h3 className="legal-card-title">
-                  ✨ Smart Extraction (AI Cloud Mode)
-                </h3>
-                <ul className="legal-list">
-                  <li>
-                    Your document image is{" "}
-                    <strong>temporarily uploaded</strong> to a secure cloud
-                    service for AI processing
+                    To provide high-quality text extraction, selected files and the
+                    resulting text may be securely processed through designated
+                    cloud services.
                   </li>
                   <li>
-                    The image is used <strong>only</strong> for the purpose of
-                    extracting text and is not permanently stored by us
+                    These transfers are required strictly for core app functionality
+                    and happen only when you actively trigger a scan.
                   </li>
                   <li>
-                    Extracted text results are returned to your device and
-                    displayed in the App
-                  </li>
-                  <li>
-                    We do not retain copies of your document images or the
-                    extracted text on any server we own or control
+                    We do not sell your files, images, or extracted text to anyone.
                   </li>
                 </ul>
               </div>
@@ -164,12 +142,11 @@ const PrivacyPolicy = () => {
             {/* ── 4. Permissions ── */}
             <section id="permissions" className="legal-section">
               <h2 className="legal-section-title">
-                <span className="legal-section-num">4.</span> Camera and
-                Storage Permissions
+                <span className="legal-section-num">4.</span> Permissions
               </h2>
               <p>
-                The App requests the following device permissions solely to
-                enable its core scanning functionality:
+                The App requests only the device permissions solely needed to enable
+                its core scanning operations:
               </p>
               <div className="legal-table-wrapper">
                 <table className="legal-table">
@@ -184,32 +161,23 @@ const PrivacyPolicy = () => {
                       <td>
                         <strong>Camera</strong>
                       </td>
-                      <td>To capture photos of documents for scanning</td>
+                      <td>To capture photos of documents for scanning.</td>
                     </tr>
                     <tr>
                       <td>
-                        <strong>Photo Library / Media Images</strong>
+                        <strong>Photo Library / Files</strong>
                       </td>
                       <td>
-                        To select existing photos from your device for scanning
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>Storage</strong>
-                      </td>
-                      <td>
-                        To temporarily save images during processing on older
-                        Android versions
+                        To let you select existing documents and images from your
+                        device.
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
               <p>
-                These permissions are used <strong>only</strong> when you
-                actively initiate a scan. The App does not access your camera
-                or storage in the background.
+                Specter does not request unrelated permissions such as contacts,
+                call logs, or precise location mapping.
               </p>
             </section>
 
@@ -220,19 +188,16 @@ const PrivacyPolicy = () => {
               </h2>
               <ul className="legal-list">
                 <li>
-                  <strong>On-device processing:</strong> No data is stored
-                  beyond your current session unless you explicitly save it
-                  within the App.
+                  Files and extracted outputs are retained temporarily and only as
+                  needed to ensure service operation and reliable text output.
                 </li>
                 <li>
-                  <strong>Cloud processing:</strong> Document images uploaded
-                  for AI extraction are temporary. We do not maintain any
-                  database of your documents.
+                  Your files remain private to your usage session and are not
+                  shared publicly by the app.
                 </li>
                 <li>
-                  <strong>Extracted text:</strong> Displayed to you within the
-                  App only. Not stored on any server by us. Any local storage
-                  remains on your device under your control.
+                  If you need support for the removal of any stored data related to
+                  your usage, you can reach out directly via our contact email.
                 </li>
               </ul>
             </section>
@@ -243,14 +208,11 @@ const PrivacyPolicy = () => {
                 <span className="legal-section-num">6.</span> Data Security
               </h2>
               <p>
-                All communications between the App and processing services use
-                HTTPS encryption. For the Instant Scan mode, no data is
-                transmitted at all — processing happens entirely on your device.
-              </p>
-              <p>
-                We do not operate our own servers for document storage, so
-                there is no server-side database that could be breached to
-                expose your documents.
+                We apply reasonable safeguards to protect your files, including
+                using encrypted transfer channels (HTTPS) during active processing
+                and enforcing restricted operational access to our systems. While no
+                digital system can offer a 100% guarantee, we consistently work to
+                protect user files and extracted data.
               </p>
             </section>
 
@@ -261,11 +223,8 @@ const PrivacyPolicy = () => {
                 Privacy
               </h2>
               <p>
-                Specter is not directed at children under the age of 13. We do
-                not knowingly collect any personal information from children. If
-                you believe a child has submitted document images through the
-                App, please contact us and we will work to ensure those images
-                are removed from any processing service.
+                Specter is not directed at children under the age of 13. We do not
+                knowingly collect any personal information from children under 13.
               </p>
             </section>
 
@@ -273,14 +232,13 @@ const PrivacyPolicy = () => {
             <section id="changes" className="legal-section">
               <h2 className="legal-section-title">
                 <span className="legal-section-num">8.</span> Changes to This
-                Privacy Policy
+                Policy
               </h2>
               <p>
-                We may update this Privacy Policy from time to time. Any
-                changes will be reflected with an updated &ldquo;Last
-                Updated&rdquo; date at the top of this page. Continued use of
-                the App after changes are posted constitutes your acceptance of
-                the revised policy.
+                We may update this Privacy Policy from time to time. Any changes
+                will be reflected with an updated &ldquo;Last Updated&rdquo; date
+                at the top of this page. Continued use of the App after changes are
+                posted constitutes your acceptance of the revised policy.
               </p>
             </section>
 
@@ -290,8 +248,8 @@ const PrivacyPolicy = () => {
                 <span className="legal-section-num">9.</span> Contact Us
               </h2>
               <p>
-                If you have any questions or concerns about this Privacy Policy
-                or how your data is handled, please contact us:
+                If you have questions, concerns, or data deletion requests, please
+                contact us:
               </p>
               <div className="legal-contact-card">
                 <div className="legal-contact-row">
@@ -306,20 +264,10 @@ const PrivacyPolicy = () => {
                 <div className="legal-contact-row">
                   <HiDocumentText className="legal-contact-icon" />
                   <div>
-                    <strong>App:</strong> Specter — FIR Document Scanner
-                  </div>
-                </div>
-                <div className="legal-contact-row">
-                  <HiShieldCheck className="legal-contact-icon" />
-                  <div>
-                    <strong>Package:</strong> {SITE_CONFIG.packageId}
+                    <strong>App Name:</strong> Specter
                   </div>
                 </div>
               </div>
-              <p className="legal-note">
-                This privacy policy was prepared for the Specter application
-                published on the Google Play Store.
-              </p>
             </section>
           </div>
         </div>
